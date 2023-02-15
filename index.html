@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analog Clock using JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+        <script type="text/javascript">
+            const deg = 6;
+            const hr = document.querySelector('#hr');
+            const mn = document.querySelector('#mn');
+            const sc = document.querySelector('#sc');
+
+            setInterval(()=>{
+
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform = `rotate(${(hh)+(mm/12)}deg)`;
+            mn.style.transform = `rotate(${mm}deg)`;
+            sc.style.transform = `rotate(${ss}deg)`;
+
+            })
+        </script>
+</body>
+</html>
